@@ -1,23 +1,30 @@
-# Trace - AI-Native PCB Design Suite
+# Trace: AI hardware design, built on KiCad
 
-**Trace is a modified version of the KiCad EDA software, enhanced with AI-native circuit design capabilities.**
+**Trace is an AI hardware design tool.** Describe the device you want in plain words, and Trace designs the circuit board (schematic, parts, layout and wiring) and a 3D-printable case for it, checks the design, and helps you order the board. This repository is the source code of the Trace app, a modified version of the KiCad EDA software.
+
+- **Get the Trace app** (macOS, Windows, Linux): [buildwithtrace.com/download](https://buildwithtrace.com/download)
+- **New to electronics?** [How to design hardware with AI](https://buildwithtrace.com/design-hardware-with-ai) and [Design your first hardware](https://docs.buildwithtrace.com/guides/first-hardware/)
+- **Using Altium Designer, KiCad or Autodesk Fusion?** The [Trace Plugin](https://buildwithtrace.com/plugin) brings Trace's assistant into your design tool.
+- **Docs:** [docs.buildwithtrace.com](https://docs.buildwithtrace.com)
 
 > **Important:** Trace is based on [KiCad](https://www.kicad.org/), an open-source electronics design automation suite. This is an independent fork created and maintained by the Trace team. Trace is not affiliated with, endorsed by, or supported by the KiCad project or The Linux Foundation.
 
-For specific documentation about [building Trace](https://docs.buildwithtrace.com/build/), policies and guidelines, and source code documentation see the [Trace Documentation](https://docs.buildwithtrace.com) website.
-
-You may also take a look into the [Wiki](https://github.com/buildwithtrace/trace/wiki) and the [contribution guide](https://docs.buildwithtrace.com/contribute/).
+For how to use Trace, see the [Trace documentation](https://docs.buildwithtrace.com). For contributing, see the [contribution guide](https://docs.buildwithtrace.com/contributing/overview/) and [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
 ## About Trace
 
-Trace extends KiCad's powerful PCB design tools with:
-- **AI Circuit Assistant**: Natural language circuit design and modification
-- **Intelligent Component Search**: AI-native part finding and suggestions  
-- **Automated Routing**: Smart trace routing with AI optimization
-- **Cloud Integration**: Sync designs and collaborate with your team
-- **Enhanced Workflow**: Streamlined UI for modern hardware engineering
+Trace extends KiCad's schematic and PCB editors with an AI assistant that designs with you:
+- **Describe it, Trace builds it**: in Flow, describe a board in plain words and Trace picks real parts, draws the schematic, lays out and routes the board and checks its own work.
+- **Parts**: Trace's component catalog, and new symbols, footprints and 3D models built from a datasheet.
+- **Placement and routing**: free basic routing and an advanced placement and routing engine.
+- **Checks and simulation**: ERC and DRC, including manufacturers' rule sets, and circuit simulation explained in plain words.
+- **Enclosures**: Trace Mechanical designs a 3D-printable case around the board (STL, 3MF, STEP).
+- **Manufacturing**: Gerber, drill, BOM and placement files, or send the board to PCBWay or Pikkolo Assembly from inside the app.
+- **Teams**: Team Workspaces with cloud projects, branches and pull requests.
+
+The assistant and its services are proprietary and need a Trace account; see [Proprietary Components](#proprietary-components) and [pricing](https://buildwithtrace.com/pricing).
 
 ## License & Compliance
 
@@ -27,7 +34,7 @@ Trace is released under the **GNU General Public License v3** (GPLv3), the same 
 
 - **License Text**: See [LICENSE](LICENSE) file in this repository
 - **Source Code**: This repository contains the complete source code for Trace
-- **Full Source Archive**: Available at https://github.com/buildwithtrace/trace
+- **Full Source Archive**: Available at https://github.com/buildwithtrace/trace-public
 
 As required by GPLv3, you are free to:
 - Use Trace for any purpose
@@ -125,8 +132,8 @@ sudo apt-get install -y cmake g++ git python3 python3-wxgtk4.0 \
     libssl-dev libngspice0-dev libocct-*-dev swig
 
 # Clone and build
-git clone https://github.com/buildwithtrace/trace
-cd trace
+git clone https://github.com/buildwithtrace/trace-public
+cd trace-public
 mkdir -p build/release
 cd build/release
 cmake ../.. -DCMAKE_BUILD_TYPE=Release
@@ -153,25 +160,25 @@ For detailed build documentation, see [Developer Documentation](https://docs.bui
 
 ## Getting Started
 
-1. **Download**: Get the latest Trace installer from [buildwithtrace.com](https://buildwithtrace.com)
-2. **Install**: Run the installer for your platform
-3. **Sign In**: Create a free account to access AI features
-4. **Start Designing**: Launch Trace and start a new schematic
+1. **Download**: Get the Trace app from [buildwithtrace.com/download](https://buildwithtrace.com/download)
+2. **Install**: Run the installer for your platform ([system requirements](https://docs.buildwithtrace.com/installation/))
+3. **Sign In**: Create a Trace account. The editors and basic routing are free; the AI assistant uses a plan, credits or a 7-day trial ([billing](https://docs.buildwithtrace.com/guides/billing/))
+4. **Start Designing**: Trace opens in Flow. Describe what you want to build, for example "A USB-C powered board with an ESP32, a temperature sensor and a status LED"
 
-### AI Features
+### What you can ask
 
-Trace's AI assistant helps you design circuits faster:
-- Type what you want in natural language: "Add a 555 timer circuit"
+- Describe a whole board: "A small USB-C powered board with an ESP32 and a temperature sensor"
 - Ask questions: "How do I add decoupling capacitors?"
 - Get component suggestions: "Find a low-power MCU for battery operation"
-- Auto-route your PCB with intelligent algorithms
+- Ask for a case: "Design a 3D-printed case for this board with a snap-on lid"
 
 ---
 
 ## Documentation
 
-- **User Guide**: [docs.buildwithtrace.com/docs/guides/first-pcb](https://docs.buildwithtrace.com/guides/first-pcb)
-- **API Documentation**: [docs.buildwithtrace.com/docs/api](https://docs.buildwithtrace.com/api/overview)
+- **Beginner's guide**: [Design your first hardware](https://docs.buildwithtrace.com/guides/first-hardware/)
+- **User Guide**: [Your first PCB](https://docs.buildwithtrace.com/guides/first-pcb/)
+- **Partner API**: [docs.buildwithtrace.com/api/partner-overview](https://docs.buildwithtrace.com/api/partner-overview/)
 - **Discord Community**: [Join us on Discord](https://discord.gg/UNUvQxneCr) - Get help, report bugs, discuss features, and stay updated
 - **KiCad Documentation**: For core EDA features, [KiCad docs](https://docs.kicad.org/) may be helpful
 
@@ -215,7 +222,7 @@ We welcome contributions! Trace is a fork of KiCad, and we maintain compatibilit
 
 **Getting Started:**
 - Join our [Discord community](https://discord.gg/UNUvQxneCr) - Primary hub for discussions, bug reports, questions, and announcements
-- Check the [issue tracker](https://github.com/buildwithtrace/trace/issues) for "good first issue" labels
+- Check the [issue tracker](https://github.com/buildwithtrace/trace-public/issues) for "good first issue" labels
 - For larger changes, discuss on Discord before starting work
 
 **Important Notes:**
@@ -232,7 +239,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on code style, pu
 - **Discord**: [Join our community](https://discord.gg/UNUvQxneCr) - Get help, report bugs, discuss features, ask questions
 - **Website**: [buildwithtrace.com](https://buildwithtrace.com)
 - **Email**: hello@buildwithtrace.com
-- **Issues**: [GitHub Issues](https://github.com/buildwithtrace/trace/issues)
+- **Issues**: [GitHub Issues](https://github.com/buildwithtrace/trace-public/issues)
 
 **Note**: For issues with core KiCad functionality (not Trace-specific features), consider also reporting to the [KiCad project](https://gitlab.com/kicad/code/kicad/-/issues) to benefit the wider community.
 
@@ -250,14 +257,14 @@ Trace is built on the excellent work of the KiCad project and its contributors. 
 
 ## Repository Information
 
-- **Main Repository**: https://github.com/buildwithtrace/trace
+- **Main Repository**: https://github.com/buildwithtrace/trace-public
 - **Mac Builder**: https://github.com/buildwithtrace/trace-mac-builder
 - **Windows Builder**: https://github.com/buildwithtrace/trace-win-builder
 - **Backend API**: (Proprietary - not included in this repository)
 
 ---
 
-**Version**: 1.0.0  
+**Version**: see [Releases](https://github.com/buildwithtrace/trace-public/releases)  
 **Based on**: KiCad EDA  
-**Modified**: January 2026  
+**Modified**: since December 2025  
 **License**: GNU GPLv3
